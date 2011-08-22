@@ -1,5 +1,6 @@
 define(['../src/SampleModule'], function(sample){
-	describe('general test', function() {
+	/* Comment out this entire file to test just the regular script */
+	describe('module test', function() {
 		it('should work', function() {
 			expect(1).toEqual(1);
 		});
