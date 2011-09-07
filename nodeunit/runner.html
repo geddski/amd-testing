@@ -3,11 +3,11 @@
 	<title>Example Test Suite</title>
 	<link rel="stylesheet" href="nodeunit.css" type="text/css"/>
 	<script src="nodeunit.js"></script>
-	<script src="scripttest.js"></script>
 	
 	<script type="text/javascript">
 		var suite1 = {
 			'example test': function (test) {
+				test.ok(true, 'everything is ok');
 				test.ok(true, 'everything is ok');
 				test.done();
 			}
