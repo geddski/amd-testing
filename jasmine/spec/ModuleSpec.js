@@ -1,16 +1,19 @@
-define(['../src/SampleModule'], function(sample){
-	/* Comment out this entire file to test just the regular script */
-	describe('module test', function() {
+describe('module test', function() {
+	var isNode = typeof module !== 'undefined' && module.exports;
+	if(isNode){
+	 	require = require('requirejs');
+	}
+	require([], function(){
 		it('should work', function() {
+			expect(3).toEqual(3);
+		});
+
+		it('should be awesome', function() {
+			expect(2).toEqual(2);
+		});
+
+		it('should work in the browser and node', function() {
 			expect(1).toEqual(1);
 		});
 	});
-
-	describe('sample module', function(){
-		it('should have the correct properties', function(){
-			expect(sample.name).toEqual('sample');
-			expect(sample.purpose).toEqual('AMD testing');
-		});
-	});
-
 });
