@@ -1,25 +1,24 @@
 <html>
 <head>
-	<title>Example Test Suite</title>
+	<title>AMD Testing</title>
 	<link rel="stylesheet" href="nodeunit.css" type="text/css"/>
+
 	<script src="nodeunit.js"></script>
-	
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/lib/require.js"></script>
+
 	<script type="text/javascript">
-		var suite1 = {
-			'example test': function (test) {
-				test.ok(true, 'everything is ok');
-				test.ok(true, 'everything is ok');
-				test.done();
-			}
-		};
+		require(['js/moduletest'], function(ModuleTest){
+			//run the tests when document is ready
+			$(function(){
+				nodeunit.run({
+					'Suite One': ModuleTest
+				});
+			});
+		});
 	</script>
 </head>
 <body>
 <h1 id="nodeunit-header">Example Test Suite</h1>
-<script>
-	nodeunit.run({
-		'Suite One': suite1
-	});
-</script>
 </body>
 </html>
