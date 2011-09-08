@@ -1,3 +1,8 @@
+console.log('running modulespec');
+
+var describe = describe || require('../lib/jasmine-1.1.0.rc1/jasmine').describe;
+console.log("describe: ", describe);
+
 describe('module test', function() {
 	var isNode = typeof module !== 'undefined' && module.exports;
 	if(isNode){
