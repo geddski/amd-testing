@@ -4,12 +4,10 @@ define(['nodeunit'], function(nodeunitNode) {
 	
 	return nu.testCase({
 		setUp: function (callback) {
-			console.log('setting up');
 			this.foo = "hi";
 			callback();
 		},
 		tearDown: function (callback) {
-			console.log('tearing down');
 			this.foo = "";
 			callback();
 		},

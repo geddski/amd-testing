@@ -4,6 +4,7 @@ requirejs.config({
 	baseUrl: 'js'
 });
 
+//bring in and list all the tests to be run
 requirejs(['moduletest'], function(ModuleTest){
 	exports.ModuleTest = ModuleTest;
 });
