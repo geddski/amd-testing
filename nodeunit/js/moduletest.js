@@ -1,12 +1,27 @@
-define(function(require, exports, module) {
-	exports.testSomething = function(test) {
-		test.expect(1);
-		test.ok(true, "this assertion should pass");
-		test.done();
-	};
-	exports.testSomethingElse = function(test) {
-		test.ok(true, "yay!");
-		test.ok(1 < 3, "wow you're good at math");
-		test.done();
-	};
+define(['nodeunit'], function(nodeunitNode) {
+	//browsers have the global nodeunit already available
+	var nu = nodeunitNode || nodeunit;
+	
+	return nu.testCase({
+		setUp: function (callback) {
+			console.log('setting up');
+			this.foo = "hi";
+			callback();
+		},
+		tearDown: function (callback) {
+			console.log('tearing down');
+			this.foo = "";
+			callback();
+		},
+		testSomething : function(test) {
+			test.ok(this.foo == 'hi', 'foo should be hi');
+			test.ok(true, "this assertion should pass");
+			test.done();
+		},
+		testSomethingElse : function(test) {
+			test.ok(true, "yay!");
+			test.ok(1 < 3, "wow you're good at math");
+			test.done();
+		}
+	})
 });
