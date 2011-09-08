@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>AMD Testing</title>
+	<link rel="stylesheet" href="nodeunit.css" type="text/css"/>
+
+	<script src="nodeunit.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/lib/require.js"></script>
+
+	<script type="text/javascript">
+		require(['js/moduletest'], function(ModuleTest){
+			//run the tests when document is ready
+			$(function(){
+				nodeunit.run({
+					'ModuleTest Suite': ModuleTest
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+<h1 id="nodeunit-header">Example Test Suite</h1>
+</body>
+</html>
