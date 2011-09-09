@@ -1,13 +1,11 @@
-console.log('running modulespec');
-
 var describe = describe || require('../lib/jasmine-1.1.0.rc1/jasmine').describe;
-console.log("describe: ", describe);
+console.log('modulespec');
 
 describe('module test', function() {
-	var isNode = typeof module !== 'undefined' && module.exports;
-	if(isNode){
-	 	require = require('requirejs');
-	}
+//	var isNode = typeof module !== 'undefined' && module.exports;
+//	if(isNode){
+//	 	require = require('requirejs');
+//	}
 	require([], function(){
 		it('should work', function() {
 			expect(3).toEqual(3);
