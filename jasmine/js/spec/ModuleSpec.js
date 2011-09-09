@@ -1,8 +1,8 @@
 //todo find better way to make these globally available
-var jasmine = jasmine || require('../lib/jasmine-1.1.0.rc1/jasmine').jasmine;
-var describe = describe || require('../lib/jasmine-1.1.0.rc1/jasmine').describe;
-var it = it || require('../lib/jasmine-1.1.0.rc1/jasmine').it;
-var expect = expect || require('../lib/jasmine-1.1.0.rc1/jasmine').expect;
+//var jasmine = jasmine || require('../lib/jasmine-1.1.0.rc1/jasmine').jasmine;
+//var describe = describe || require('../lib/jasmine-1.1.0.rc1/jasmine').describe;
+//var it = it || require('../lib/jasmine-1.1.0.rc1/jasmine').it;
+//var expect = expect || require('../lib/jasmine-1.1.0.rc1/jasmine').expect;
 
 console.log('modulespec');
 
