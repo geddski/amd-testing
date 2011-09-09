@@ -11,14 +11,17 @@
 
 	<script type="text/javascript">
 		require.config(
-			{paths: {
-				'jquery' : 'lib/jquery'
-			}}
+			{
+			  baseUrl : 'js',
+				paths: {
+					'jquery' : 'lib/jquery'
+				}
+			}
 		);
 		require([
 			//include all specs to be run
-			'js/spec/ScriptSpec',
-			'js/spec/ModuleSpec'
+			'spec/ScriptSpec',
+			'spec/ModuleSpec'
 		],
 			function() {
 				//run tests
