@@ -11,7 +11,7 @@ define(['./SampleModule', 'nodeunit'], function(SampleModule, nodeunitNode) {
 			this.foo = "";
 			callback();
 		},
-		testMyModule: function(test){
+		'AMD Module': function(test){
 			test.ok(SampleModule.name == 'sample');
 			test.done();
 		},
