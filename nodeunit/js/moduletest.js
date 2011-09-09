@@ -1,4 +1,4 @@
-define(['nodeunit'], function(nodeunitNode) {
+define(['./SampleModule', 'nodeunit'], function(SampleModule, nodeunitNode) {
 	//browsers have the global nodeunit already available
 	var nu = nodeunitNode || nodeunit;
 	
@@ -10,6 +10,10 @@ define(['nodeunit'], function(nodeunitNode) {
 		tearDown: function (callback) {
 			this.foo = "";
 			callback();
+		},
+		testMyModule: function(test){
+			test.ok(SampleModule.name == 'sample');
+			test.done();
 		},
 		testSomething : function(test) {
 			test.ok(this.foo == 'hi', 'foo should be hi');
