@@ -4,6 +4,9 @@ requirejs.config({
 	baseUrl: 'js'
 });
 
+//make define available globally like it is in the browser
+global.define = require('requirejs');
+
 //make jasmine available globally like it is in the browser
 global.describe = require('./lib/jasmine-1.1.0.rc1/jasmine').describe;
 global.it = require('./lib/jasmine-1.1.0.rc1/jasmine').it;

@@ -1,6 +1,3 @@
-
-var define = define || require('requirejs');
-
 define([], function() {
 	console.log('modulespec');
 	describe('module test', function() {
