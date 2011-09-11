@@ -10,6 +10,7 @@ Jasmine is working.
 Open jasmine/SpecRunner.html in your browser
 ### Node Testing
 `node runner.js`
+
 Make sure you've installed the RequireJS npm package. This allows you to use your AMD modules in Node.
 NOTE: there are a couple of ways to run Jasmine in Node: 1. use the regular standalone jasmine.js file or 2. use the 3rd party jasmine-node command-line tool.
 I was not able to get it working with the command-line tool, because it searches for all tests in a specified folder and runs them, and our tests themselves are AMD modules.
