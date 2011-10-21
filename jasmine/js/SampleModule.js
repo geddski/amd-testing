@@ -1,6 +1,4 @@
-define(function(){
-	return {
-		name: "sample",
-		purpose: "AMD testing"
-	}
+define({
+  name: "sample",
+  purpose: "AMD testing"
 });
