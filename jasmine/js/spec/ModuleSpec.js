@@ -1,14 +1,19 @@
-define([], function() {
-	console.log('modulespec');
-	describe('module test', function() {
-		it('should work in the browser', function() {
-			expect(1).toEqual(1);
-		});
+define(["../SampleModule"], function(SampleModule) {
 
-		it('should work in node', function() {
-			expect(2).toEqual(2);
-		});
-	});
+  describe("Sample Module", function() {
+    it('should have a name', function() {
+      expect(SampleModule.name).toBe("sample");
+    });
+    
+    it('should state the purpose', function() {
+      expect(SampleModule.purpose).toBe("AMD testing");
+    });
+    
+    it('should store the jquery version', function() {
+      expect(SampleModule.jq_version).toBe("1.6");
+    });
+  });
+  
 	return {
 		name: "modulespec"
 	}

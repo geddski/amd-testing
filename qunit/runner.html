@@ -17,16 +17,12 @@
 
 <script type="text/javascript">
 	require.config({
-		baseUrl: 'js'
+		baseUrl: 'js',
+		paths: {
+			'jquery' : 'lib/jquery'
+		}
 	});
-	require(['moduletest'], function(ModuleTest) {
-		//run the tests when document is ready
-//		$(function() {
-//			nodeunit.run({
-//				'ModuleTest Suite': ModuleTest
-//			});
-//		});
-	});
+	require(['moduletest'], function(ModuleTest) {});
 </script>
 
 </body>

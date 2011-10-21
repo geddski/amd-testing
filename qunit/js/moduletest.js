@@ -1,8 +1,18 @@
 define(['samplemodule'], function(SampleModule) {
-//define([], function() {
 	console.log("moduletest");
-	test("a Sample Module", function() {
+	test("sanity", function() {
 		ok(true, "this test is fine");
-		equal(SampleModule.name, "sample", "name should be sample");
+	});
+	
+	test("the module name", function() {
+	  equal(SampleModule.name, "sample", "name should be sample");
+	});
+	
+	test("the module purpose", function() {
+	  equal(SampleModule.purpose, "AMD testing", "purpose should be 'AMD testing'");
+	});
+	
+	test("the module jquery version", function() {
+	  equal(SampleModule.jq_version, "1.6", "jq_version should be '1.6'");
 	});
 });
