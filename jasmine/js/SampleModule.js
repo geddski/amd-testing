@@ -1,8 +1,7 @@
-define(["jquery"], function($){
-  
+define(['lib/module-b'], function(moduleB){
   return {
     name: "sample",
     purpose: "AMD testing",
-    jq_version: $().jquery
+	  dependency: moduleB.name
   };
 });

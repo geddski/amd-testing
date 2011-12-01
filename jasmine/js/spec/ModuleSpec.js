@@ -8,9 +8,9 @@ define(["../SampleModule"], function(SampleModule) {
     it('should state the purpose', function() {
       expect(SampleModule.purpose).toBe("AMD testing");
     });
-    
-    it('should store the jquery version', function() {
-      expect(SampleModule.jq_version).toBe("1.6");
+
+    it('should have its own dependencies', function() {
+      expect(SampleModule.dependency).toBe("Module B");
     });
   });
   
