@@ -17,7 +17,8 @@
 
 		require(['require', 'lib/chai', 'lib/mocha'], function(require){
 			mocha.setup('bdd');
-			require(['spec/test.script'], function(){
+			require(['spec/test.module', 'spec/test.script'], function(module){
+				console.log("module: ", module);
 				mocha.run();
 			});
 		});
