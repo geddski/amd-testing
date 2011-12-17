@@ -4,6 +4,11 @@
 Demonstrate how to test async modules (AMD) both in the browser and in NodeJS. RequireJS is the AMD loader, and several testing frameworks will be evaluated.
 The goal is to find the very best test frameworks for testing AMD modules in both environments.
 
+## Mocha
+Mocha is working in the browser. Mocha doesn't come with an assertion library, so I'm using the excellent [chai.js](http://chaijs.com/).
+###Browser Testing
+Open mocha/runner.html in your browser
+
 ## Jasmine
 Jasmine is working.
 ### Browser Testing
