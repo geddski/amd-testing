@@ -48,7 +48,9 @@ describe('module with own dependency', function(){
 describe('nested requires', function(){
   require(['require'], function(require){
     require(['module-one'], function(moduleOne){
+      it('should work', function(){
         expect(moduleOne.name).toEqual("Module One");
+      });
     });
   })
 });
