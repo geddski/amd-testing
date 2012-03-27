@@ -1,56 +1,47 @@
 /* 
-Tests using the run() syntax 
-TODO find reliable way to test that ALL tests were run, none skipped
-TODO figure out why a single run() for multiple describes doesn't work
+Tests without using run(), meant to be used with AMD extension
+TODO run these with the AMD extension to avoid the error:
+Uncaught TypeError: Cannot read property 'tests' of undefined
 */
-
 
 buster.spec.expose();
 require.config({
   baseUrl: 'js/' //MUST be the same as the modules you're testing
 });
 
-describe('run syntax with no dependencies', function(run){
+describe('no dependencies', function(){
   require([], function(){
-    run(function(){
       it('should work', function () {
         expect(true).toEqual(true);
       });
-    });
   });
 });
 
-describe('single dependency', function(run){
+describe('single dependency', function(){
   require(['module-one'], function(moduleOne){
-    run(function(){
       it('should work', function () {
         expect(moduleOne.name).toEqual("Module One");
       });
-    });
   });
 });
 
-describe('multiple dependencies', function(run){
+describe('multiple dependencies', function(){
   require(['module-one', 'module-three'], function(moduleOne, moduleThree){
-    run(function(){
       it('should work', function () {
         expect(moduleOne.name).toEqual("Module One");
         expect(moduleThree.name).toEqual("Module Three");
       });
-    });
   });
 });
 
 /* module-two depends on module-one */
-describe('module with own dependency', function(run){
+describe('module with own dependency', function(){
   require(['module-two'], function(moduleTwo){
-    run(function(){
       it('should work', function () {
         expect(moduleTwo.name).toEqual("Module Two");
         expect(moduleTwo.dependencies[0].name).toEqual("Module One");
       });
     });
-  });
 });
 
 /* !! TEST BEING SKIPPED FOR SOME REASON !! */
@@ -74,11 +65,9 @@ describe('requirejs plugins', function(){
     }
   });
   require(['wrap!pizza'], function(pizza){
-    run(function(){
       it('should work', function(){
         expect(pizza.ingredients[0].name).toEqual("cheese");
       });
-    });
   });
 });
 

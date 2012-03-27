@@ -6,7 +6,8 @@ config["Browser Tests"] = {
   libs:["js/lib/require.js"],
   tests:[
     // "spec/script/*.js"
-    "spec/module/test.module.js"
+    "spec/module/test.module.js",
+    "spec/module/test.module.extension.js"
   ], 
   resources:['**/*.js']
 };
