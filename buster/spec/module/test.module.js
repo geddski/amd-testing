@@ -53,18 +53,6 @@ describe('module with own dependency', function(run) {
   });
 });
 
-describe('nested requires', function(run) {
-  require(['require'], function(require) {
-    require(['module-one'], function(moduleOne) {
-      run(function(){
-        it('should work', function() {
-          expect(moduleOne.name).toEqual("Module One");
-        });
-      });
-    });
-  })
-});
-
 /* !! TEST BEING OCASSIONALLY SKIPPED FOR SOME REASON !! */
 describe('requirejs plugins', function(run) {
   require.config({
@@ -87,4 +75,16 @@ describe('requirejs plugins', function(run) {
       });
     });
   });
+});
+
+describe('nested requires', function(run) {
+  require(['require'], function(require) {
+    require(['module-one'], function(moduleOne) {
+      run(function(){
+        it('should work', function() {
+          expect(moduleOne.name).toEqual("Module One");
+        });
+      });
+    });
+  })
 });
