@@ -53,19 +53,20 @@ describe('module with own dependency', function(run) {
   });
 });
 
-/* !! TEST BEING SKIPPED FOR SOME REASON !! */
-describe('nested requires', function() {
+describe('nested requires', function(run) {
   require(['require'], function(require) {
     require(['module-one'], function(moduleOne) {
-      it('should work', function() {
-        expect(moduleOne.name).toEqual("Module One");
+      run(function(){
+        it('should work', function() {
+          expect(moduleOne.name).toEqual("Module One");
+        });
       });
     });
   })
 });
 
 /* !! TEST BEING SKIPPED FOR SOME REASON !! */
-describe('requirejs plugins', function() {
+describe('requirejs plugins', function(run) {
   require.config({
     paths: {
       'wrap': 'lib/wrap',
@@ -81,6 +82,7 @@ describe('requirejs plugins', function() {
   require(['wrap!pizza'], function(pizza) {
     run(function() {
       it('should work', function() {
+        expect(true).toEqual(false); //getting skipped still... :(
         expect(pizza.ingredients[0].name).toEqual("cheese");
       });
     });
