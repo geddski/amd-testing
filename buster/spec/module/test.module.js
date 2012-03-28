@@ -65,7 +65,7 @@ describe('nested requires', function(run) {
   })
 });
 
-/* !! TEST BEING SKIPPED FOR SOME REASON !! */
+/* !! TEST BEING OCASSIONALLY SKIPPED FOR SOME REASON !! */
 describe('requirejs plugins', function(run) {
   require.config({
     paths: {
@@ -82,8 +82,8 @@ describe('requirejs plugins', function(run) {
   require(['wrap!pizza'], function(pizza) {
     run(function() {
       it('should work', function() {
-        expect(true).toEqual(false); //getting skipped still... :(
-        expect(pizza.ingredients[0].name).toEqual("cheese");
+        expect(true).toEqual(false); //sometimes skipped, sometimes not skipped
+        expect(pizza.ingredients[0].name).toEqual("cheeser");
       });
     });
   });

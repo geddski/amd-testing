@@ -9,67 +9,64 @@ require.config({
   baseUrl: 'js/' //MUST be the same as the modules you're testing
 });
 
-describe('no dependencies', function(){
-  require([], function(){
-      it('should work', function () {
-        expect(true).toEqual(true);
-      });
+define('single', ['module-one'], function(moduleOne){
+  describe('single dependency', function(){
+    it('should work', function () {
+      expect(moduleOne.name).toEqual("Module One");
+    });
   });
 });
 
-describe('single dependency', function(){
-  require(['module-one'], function(moduleOne){
-      it('should work', function () {
-        expect(moduleOne.name).toEqual("Module One");
-      });
-  });
-});
-
-describe('multiple dependencies', function(){
-  require(['module-one', 'module-three'], function(moduleOne, moduleThree){
-      it('should work', function () {
-        expect(moduleOne.name).toEqual("Module One");
-        expect(moduleThree.name).toEqual("Module Three");
-      });
+define('multiple', ['module-one', 'module-three'], function(moduleOne, moduleThree){
+  describe('multiple dependencies', function(){
+    it('should work', function () {
+      expect(moduleOne.name).toEqual("Module One");
+      expect(moduleThree.name).toEqual("Module Three");
+    });
   });
 });
 
 /* module-two depends on module-one */
-describe('module with own dependency', function(){
-  require(['module-two'], function(moduleTwo){
-      it('should work', function () {
-        expect(moduleTwo.name).toEqual("Module Two");
-        expect(moduleTwo.dependencies[0].name).toEqual("Module One");
-      });
+define('own', ['module-two'], function(moduleTwo){
+  describe('module with own dependency', function(){
+    it('should work', function () {
+      expect(moduleTwo.name).toEqual("Module Two");
+      expect(moduleTwo.dependencies[0].name).toEqual("Module One");
     });
+  });  
 });
 
 /* !! TEST BEING SKIPPED FOR SOME REASON !! */
-describe('nested requires', function(){
-  require(['require'], function(require){
+define('using-plugins', [], function(){
+  describe('requirejs plugins', function(){
+    require.config({
+      paths: {'wrap': 'lib/wrap', 'text': 'lib/text'},
+      wrapJS: {
+        'pizza': {
+          deps: ['cheese'],
+          attach: 'pizza'
+        }
+      }
+    });
+    require(['wrap!pizza'], function(pizza){
+      it('should work', function(){
+        expect(pizza.ingredients[0].name).toEqual("cheese");
+        expect(true).toEqual(false); //getting skipped still... :(
+      });
+    });
+  });
+});
+
+/* USING REQUIRE() CAUSES ERROR: 
+Uncaught exception: /bust...bundle-0.3.1.js:5691 Uncaught TypeError: Cannot read property 'tests' of undefined
+*/
+define('nested', ['require'], function(require){
+  describe('nested requires', function(){
     require(['module-one'], function(moduleOne){
       it('should work', function(){
         expect(moduleOne.name).toEqual("Module One");
       });
     });
-  })
-});
-
-/* !! TEST BEING SKIPPED FOR SOME REASON !! */
-describe('requirejs plugins', function(){
-  require.config({
-    paths: {'wrap': 'lib/wrap', 'text': 'lib/text'},
-    wrapJS: {
-      'pizza': {
-        deps: ['cheese'],
-        attach: 'pizza'
-      }
-    }
-  });
-  require(['wrap!pizza'], function(pizza){
-      it('should work', function(){
-        expect(pizza.ingredients[0].name).toEqual("cheese");
-      });
   });
 });
 

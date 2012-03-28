@@ -1,13 +1,22 @@
 var config = module.exports;
 
-config["Browser Tests"] = {
+// config["Browser Tests"] = {
+//   environment:"browser",
+//   rootPath:"../",
+//   libs:["js/lib/require.js"],
+//   tests:[
+//     "spec/module/test.module.js"
+//   ], 
+//   resources:['**/*.js']
+// };
+
+config["Browser Tests With Extension"] = {
   environment:"browser",
   rootPath:"../",
   libs:["js/lib/require.js"],
   tests:[
-    // "spec/script/*.js"
-    "spec/module/test.module.js",
     "spec/module/test.module.extension.js"
   ], 
-  resources:['**/*.js']
+  sources:['**/*.js'],
+  extensions: [require("buster-amd")]
 };
