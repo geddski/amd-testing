@@ -1,5 +1,4 @@
-define(["../SampleModule"], function(SampleModule) {
-
+define(["SampleModule"], function(SampleModule) {
   describe("Sample Module", function() {
     it('should have a name', function() {
       expect(SampleModule.name).to.be.a("string");
@@ -8,6 +7,10 @@ define(["../SampleModule"], function(SampleModule) {
     
     it('should state the purpose', function() {
       expect(SampleModule.purpose).to.equal("AMD testing");
+    });
+
+    it('should have its own dependencies', function() {
+      expect(SampleModule.dependency).to.equal("Module B");
     });
 
     it('should have its own dependencies', function() {
