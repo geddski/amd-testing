@@ -70,8 +70,8 @@ describe('requirejs plugins', function(run) {
   require(['wrap!pizza'], function(pizza) {
     run(function() {
       it('should work', function() {
-        expect(true).toEqual(false); //sometimes skipped, sometimes not skipped
-        expect(pizza.ingredients[0].name).toEqual("cheeser");
+        expect(true).toEqual(true); //sometimes skipped, sometimes not skipped
+        expect(pizza.ingredients[0].name).toEqual("cheese");
       });
     });
   });
