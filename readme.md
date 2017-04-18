@@ -6,7 +6,7 @@ The goal is to find the very best test frameworks for testing AMD modules in bot
 
 ## Mocha
 Mocha is working in the browser. Mocha doesn't come with an assertion library, so I'm using the excellent [chai.js](http://chaijs.com/).
-###Browser Testing
+### Browser Testing
 Open mocha/runner.html in your browser
 
 ## Jasmine
